@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>BJ Pro</title>
+  <script>
+window.onerror = function(msg, url, line, col) {
+  document.body.innerHTML = '<div style="padding:20px;background:#ff3366;color:white;font-family:monospace;font-size:14px;line-height:1.5;">⚠️ Eroare JavaScript:<br><br><strong>' + msg + '</strong><br>Linia: ' + line + ':' + col + '</div>';
+  return false;
+};
+  </script>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="/socket.io/socket.io.js"></script>
 <link rel="stylesheet" href="style.css">
