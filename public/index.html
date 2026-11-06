@@ -397,9 +397,14 @@ if (v >= 7 && v <= 9) return 0;
 return -1;
 }
 function getCardHTML(card, isLarge = false) {
-if (card.isHidden) return <div class="playing-card card-hidden ${isLarge ? 'large-card' : ''}"></div>; const col = card.isRed ? 'card-red' : 'card-black'; const lCls = isLarge ? 'large-card' : ''; return<div class="playing-card ${col} ${lCls} animate-card">
-<div class="text-left leading-none">${card.rank}&lt;/div&gt; &lt;div class="suit-center"&gt;${card.symbol}</div>
-<div class="text-right rotate-180 leading-none">${card.rank}&lt;/div&gt; &lt;/div>;
+  if (card.isHidden) return '<div class="playing-card card-hidden ' + (isLarge ? 'large-card' : '') + '"></div>';
+  const col = card.isRed ? 'card-red' : 'card-black';
+  const lCls = isLarge ? 'large-card' : '';
+  return '<div class="playing-card ' + col + ' ' + lCls + ' animate-card">' +
+      '<div class="text-left leading-none">' + card.rank + '</div>' +
+      '<div class="suit-center">' + card.symbol + '</div>' +
+      '<div class="text-right rotate-180 leading-none">' + card.rank + '</div>' +
+    '</div>';
 }
 function makeCard(rank) {
 const s = SUITS[Math.floor(Math.random() * SUITS.length)];
